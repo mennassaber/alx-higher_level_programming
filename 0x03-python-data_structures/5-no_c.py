@@ -1,15 +1,7 @@
 #!/usr/bin/python3
-def new_in_list(my_list, idx, element):
-    if idx < 0 or idx >= len(my_list):
-        return my_list[:]
-    else:
-        new_list = my_list[:]
-        new_list[idx] = element
-        return new_list
-if __name__ == "__main__":
-    my_list = [1, 2, 3, 4, 5]
-    idx = 3
-    new_element = 9
-    new_list = new_in_list(my_list, idx, new_element)
-    print(new_list)
-    print(my_list)
+def no_c(my_string):
+     char = ""
+for i in range(len (my_string)):
+if (my_string[i] != 'c' and my_string[i] != 'C'):
+char += my_string[i]
+return char
