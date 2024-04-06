@@ -22,15 +22,7 @@ class Square:
     
     @size.setter
     def size(self, value):
-        """Set the size of the square.
-        
-        Args:
-            value (int): The size to set.
-        
-        Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than 0.
-        """
+        """Set the size of the square."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -44,14 +36,7 @@ class Square:
     
     @position.setter
     def position(self, value):
-        """Set the position of the square.
-        
-        Args:
-            value (tuple): The position to set.
-        
-        Raises:
-            TypeError: If value is not a tuple of 2 positive integers.
-        """
+        """Set the position of the square."""
         if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
         if not all(isinstance(i, int) and i >= 0 for i in value):
@@ -70,4 +55,15 @@ class Square:
         for _ in range(self.__position[1]):
             print()
         for _ in range(self.__size):
-            print(" " * self.__position[0] + "#" * self.__size) 
+            print(" " * self.__position[0] + "#" * self.__size)
+    
+    def __str__(self):
+        """Return a string representation of the square."""
+        square_str = ""
+        if self.__size == 0:
+            return square_str
+        for _ in range(self.__position[1]):
+            square_str += "\n"
+        for _ in range(self.__size):
+            square_str += " " * self.__position[0] + "#" * self.__size + "\n"
+        return square_str.strip() 
